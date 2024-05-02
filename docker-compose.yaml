@@ -1,0 +1,8 @@
+services:
+  mongo:
+    build: ./mongo/
+    ports:
+      - 27017:27017
+    restart: on-failure
+    volumes:
+      - ~/temp:/data/db   
