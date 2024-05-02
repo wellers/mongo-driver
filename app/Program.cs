@@ -21,12 +21,12 @@ var client = new MongoClient(connectionString);
 
 var collection = client.GetDatabase("my_database").GetCollection<Movie>("movies");
 
+// insert a movie
 var movie = new Movie(title: "Back to the Future");
-
 await collection.InsertOneAsync(movie);
 
+// find a movie based on title
 var filter = Builders<Movie>.Filter.Eq("Title", "Back to the Future");
-
 var document = await collection.Find(filter).FirstOrDefaultAsync();
 
 Console.WriteLine($"_id: {document.Id} , title: {document.Title}");
