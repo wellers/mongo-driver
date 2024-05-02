@@ -6,13 +6,13 @@ using MongoDB.Driver;
 var connectionString = Environment.GetEnvironmentVariable("MONGODB_URI");
 if (connectionString is null)
 {
-    Console.WriteLine("You must set your 'MONGODB_URI' environment variable.");
-    Environment.Exit(0);
+	Console.WriteLine("You must set your 'MONGODB_URI' environment variable.");
+	Environment.Exit(0);
 }
 
 var conventionPack = new ConventionPack
 {
-    new CamelCaseElementNameConvention()
+	new CamelCaseElementNameConvention()
 };
 
 ConventionRegistry.Register("camelCase", conventionPack, t => true);
@@ -33,8 +33,7 @@ Console.WriteLine($"_id: {document.Id} , title: {document.Title}");
 
 internal class Movie(string title)
 {
-    [BsonId]
-    public ObjectId Id { get; set; } = ObjectId.GenerateNewId();
+	[BsonId] public ObjectId Id { get; set; } = ObjectId.GenerateNewId();
 
-    public string Title { get; set; } = title;
+	public string Title { get; set; } = title;
 }
