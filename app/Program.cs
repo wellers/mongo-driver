@@ -33,7 +33,8 @@ Console.WriteLine($"_id: {document.Id} , title: {document.Title}");
 
 internal class Movie(string title)
 {
-	[BsonId] public ObjectId Id { get; set; } = ObjectId.GenerateNewId();
+	[BsonId] 
+	public ObjectId Id { get; set; } = ObjectId.GenerateNewId();
 
 	public string Title { get; set; } = title;
 }
